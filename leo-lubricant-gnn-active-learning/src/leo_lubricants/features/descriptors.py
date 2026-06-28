@@ -4,6 +4,23 @@ from typing import Any
 
 import pandas as pd
 
+DESCRIPTOR_COLUMNS = [
+    "molecular_weight",
+    "logp",
+    "tpsa",
+    "rotatable_bonds",
+    "heavy_atoms",
+    "h_bond_donors",
+    "h_bond_acceptors",
+    "ring_count",
+    "aromatic_ring_count",
+    "fraction_csp3",
+    "fluorine_count",
+    "silicon_count",
+    "heteroatom_count",
+    "formal_charge",
+]
+
 
 def _require_rdkit() -> Any:
     try:
@@ -66,4 +83,3 @@ def add_descriptors(df: pd.DataFrame, smiles_column: str = "smiles") -> pd.DataF
 
 def add_descriptor_columns(frame: pd.DataFrame, smiles_column: str = "smiles") -> pd.DataFrame:
     return add_descriptors(frame, smiles_column=smiles_column)
-

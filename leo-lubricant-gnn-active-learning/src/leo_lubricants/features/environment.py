@@ -5,6 +5,17 @@ import pandas as pd
 
 from leo_lubricants.data.schema import ENVIRONMENT_COLUMNS, validate_columns
 
+DEGRADATION_MEMORY_COLUMNS = [
+    "log1p_atomic_oxygen_fluence",
+    "log1p_uv_dose",
+    "thermal_range_k",
+    "log1p_test_duration_h",
+    "mean_test_temperature_k",
+    "ao_temperature_interaction",
+    "uv_duration_interaction",
+    "mechanical_severity",
+]
+
 
 def environment_columns() -> list[str]:
     return list(ENVIRONMENT_COLUMNS)
@@ -40,20 +51,10 @@ def compute_degradation_memory_features(df: pd.DataFrame) -> pd.DataFrame:
 
 def build_environment_matrix(df: pd.DataFrame) -> np.ndarray:
     enriched = compute_degradation_memory_features(df)
-    feature_columns = environment_columns() + [
-        "log1p_atomic_oxygen_fluence",
-        "log1p_uv_dose",
-        "thermal_range_k",
-        "log1p_test_duration_h",
-        "mean_test_temperature_k",
-        "ao_temperature_interaction",
-        "uv_duration_interaction",
-        "mechanical_severity",
-    ]
+    feature_columns = environment_columns() + DEGRADATION_MEMORY_COLUMNS
     return enriched[feature_columns].to_numpy(dtype=float)
 
 
 def add_environment_features(frame: pd.DataFrame, environment_columns: list[str]) -> pd.DataFrame:
     validate_columns(frame, environment_columns)
     return compute_degradation_memory_features(frame)
-

@@ -7,7 +7,12 @@ import yaml
 
 
 def load_config(path: str | Path) -> dict[str, Any]:
-    with Path(path).open("r", encoding="utf-8") as handle:
+    config_path = Path(path)
+    if not config_path.exists():
+        raise FileNotFoundError(f"Configuration file not found: {config_path}")
+    with config_path.open("r", encoding="utf-8") as handle:
         data = yaml.safe_load(handle)
-    return dict(data or {})
+    if not isinstance(data, dict):
+        raise ValueError(f"Configuration file must contain a mapping: {config_path}")
+    return data
 

@@ -1,16 +1,31 @@
-import numpy as np
+import pandas as pd
 
-from leo_lubricants.active_learning.desirability import compute_desirability, summarize_uncertainty
+from leo_lubricants.active_learning.desirability import DesirabilityConfig, compute_integrated_desirability
 
 
-def test_desirability_prefers_better_tradeoff() -> None:
-    predictions = np.array(
+def test_desirability_monotonicity() -> None:
+    config = DesirabilityConfig.default()
+    predictions = pd.DataFrame(
         [
-            [0.02, 40.0, 0.12, 4.0, 0.30, 3.0, 0.45],
-            [0.01, 55.0, 0.08, 2.5, 0.15, 1.8, 0.20],
+            {
+                "log_vapor_pressure_pa": -3.7,
+                "viscosity_cst": 25.0,
+                "friction_coefficient": 0.14,
+                "wear_rate": 4.5,
+                "mass_loss_percent": 0.35,
+                "viscosity_change_percent": 4.0,
+                "degradation_index": 0.55,
+            },
+            {
+                "log_vapor_pressure_pa": -4.8,
+                "viscosity_cst": 50.0,
+                "friction_coefficient": 0.08,
+                "wear_rate": 2.8,
+                "mass_loss_percent": 0.18,
+                "viscosity_change_percent": 1.8,
+                "degradation_index": 0.22,
+            },
         ]
     )
-    values = compute_desirability(predictions)
-    assert values[1] > values[0]
-    assert summarize_uncertainty(np.array([[0.1] * 7]))[0] == 0.1
-
+    desirability = compute_integrated_desirability(predictions, config)
+    assert desirability.iloc[1] > desirability.iloc[0]

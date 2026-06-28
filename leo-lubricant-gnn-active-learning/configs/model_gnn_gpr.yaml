@@ -1,15 +1,30 @@
-random_seed: 7
-max_nodes: 24
-batch_size: 4
-epochs: 12
-learning_rate: 0.003
+seed: 7
+epochs: 16
+learning_rate: 0.0025
 weight_decay: 0.0001
-hidden_dim: 32
+hidden_dim: 48
+head_hidden_dim: 48
 message_passing_steps: 3
 dropout: 0.1
-descriptor_dim: 11
-environment_dim: 8
-latent_dim: 32
-gp_max_points: 128
+l2_penalty: 1.0e-6
 gp_noise: 1.0e-4
-
+gp_normalize_y: true
+gp_max_fit_points: 256
+use_cuda: false
+task_weights:
+  log_vapor_pressure_pa: 1.0
+  viscosity_cst: 1.0
+  friction_coefficient: 1.0
+  wear_rate: 1.0
+  mass_loss_percent: 1.0
+  viscosity_change_percent: 1.0
+  degradation_index: 1.0
+physics_weights:
+  vapor_pressure_temperature: 0.1
+  viscosity_temperature: 0.1
+  degradation_atomic_oxygen: 0.1
+no_environment_gate: false
+no_degradation_memory: false
+no_descriptors: false
+no_gpr_uncertainty: false
+no_physics_loss: false

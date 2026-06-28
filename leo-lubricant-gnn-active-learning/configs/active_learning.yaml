@@ -1,6 +1,53 @@
-exploration_weight: 0.45
-exploitation_weight: 0.55
-top_k: 5
-candidate_path: data/raw/sample_candidates.csv
-output_path: results/candidate_rankings/active_learning_ranked_candidates.csv
-
+batch_size: 3
+desirability_cutoff: 0.05
+uncertainty_cutoff: 2.0
+vapor_pressure_cutoff: -4.0
+acquisition_weights:
+  desirability: 0.65
+  uncertainty: 0.35
+  diversity_penalty: 0.0
+desirability:
+  log_vapor_pressure_pa:
+    mode: lower
+    weight: 1.0
+    target: -5.0
+    upper: -3.5
+    curvature: 1.2
+  viscosity_cst:
+    mode: range
+    weight: 1.0
+    lower: 20.0
+    target_low: 35.0
+    target_high: 65.0
+    upper: 90.0
+    curvature: 1.0
+  friction_coefficient:
+    mode: lower
+    weight: 1.0
+    target: 0.08
+    upper: 0.16
+    curvature: 1.0
+  wear_rate:
+    mode: lower
+    weight: 1.0
+    target: 2.5
+    upper: 5.0
+    curvature: 1.0
+  mass_loss_percent:
+    mode: lower
+    weight: 1.0
+    target: 0.10
+    upper: 0.40
+    curvature: 1.0
+  viscosity_change_percent:
+    mode: lower
+    weight: 1.0
+    target: 1.0
+    upper: 5.0
+    curvature: 1.0
+  degradation_index:
+    mode: lower
+    weight: 1.0
+    target: 0.15
+    upper: 0.60
+    curvature: 1.0
