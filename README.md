@@ -1,4 +1,3 @@
-cat > README.md <<'EOF'
 # Space Lubricants
 
 This repository contains the project files for **Space-Environment-Conditioned Degradation-Aware Graph Neural Learning for Tribological Discovery of Low-Volatility Space Lubricants**.
@@ -12,4 +11,4 @@ This repository currently contains preliminary project materials related to the 
 ## Note
 
 Full scripts and manuscript data will be uploaded once accepted.
-EOF
+
