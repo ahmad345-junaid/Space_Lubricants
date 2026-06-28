@@ -1,0 +1,7 @@
+molecule_id,smiles,t_min_k,t_max_k,atomic_oxygen_fluence,uv_dose,test_duration_h,vacuum_pressure_pa,normal_load_n,sliding_speed_m_s
+CAN001,CCCOCC,292,352,1800,135,44,0.0005,16,0.30
+CAN002,CC(C)OCC,310,395,3000,220,78,0.0004,21,0.42
+CAN003,CCCCO,278,338,1300,100,28,0.0007,14,0.24
+CAN004,c1ccncc1,302,388,2800,205,64,0.0004,20,0.36
+CAN005,CCOC(C)OC,270,330,1100,82,22,0.0008,13,0.22
+CAN006,CCNCOC,318,408,3600,255,90,0.0003,23,0.48

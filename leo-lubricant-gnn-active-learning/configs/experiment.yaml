@@ -1,0 +1,8 @@
+name: demo_multitask_space_lubricants
+processed_dir: data/processed
+model_bundle_path: results/trained_models/demo_model_bundle.joblib
+training_predictions_path: results/metrics/training_predictions.csv
+evaluation_metrics_path: results/metrics/evaluation_metrics.json
+evaluation_predictions_path: results/metrics/evaluation_predictions.csv
+figure_dir: results/figures
+

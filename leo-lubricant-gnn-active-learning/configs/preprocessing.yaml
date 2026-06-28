@@ -1,0 +1,8 @@
+seed: 7
+train_size: 0.6
+val_size: 0.2
+test_size: 0.2
+split_strategy: scaffold
+group_column: inchikey
+input_path: data/raw/sample_molecules.csv
+output_dir: data/processed

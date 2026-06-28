@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+title: "Environment-Conditioned Degradation-Aware Graph Neural Network with Gaussian-Process Uncertainty Estimation and Active Learning for Low-Volatility Space Lubricant Discovery"
+message: "If you use this repository, please cite it using the metadata below."
+type: software
+authors:
+  - family-names: "Babu"
+    given-names: "Research Team"
+repository-code: "https://example.com/leo-lubricant-gnn-active-learning"
+license: "MIT"
+version: "0.1.0"
+date-released: 2026-06-28
+

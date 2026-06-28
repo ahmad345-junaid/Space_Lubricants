@@ -1,0 +1,6 @@
+exploration_weight: 0.45
+exploitation_weight: 0.55
+top_k: 5
+candidate_path: data/raw/sample_candidates.csv
+output_path: results/candidate_rankings/active_learning_ranked_candidates.csv
+

@@ -1,0 +1,19 @@
+name: leo-lubricants
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - numpy
+  - pandas
+  - scikit-learn
+  - scipy
+  - pytorch
+  - pyyaml
+  - matplotlib
+  - rdkit
+  - tqdm
+  - joblib
+  - pip
+  - pip:
+      - -e .
+
